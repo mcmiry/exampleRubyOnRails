@@ -1,0 +1,232 @@
+  [1m[36m (12.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (5.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUser (20161025144148)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/rubist/example/db/migrate/20161025144148_create_user.rb:7)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "nick" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161025144148"]]
+  [1m[35m (13.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (22.2ms)[0m  INSERT INTO "users" ("email", "nick", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "user1@factory.com"], ["nick", "Viserys Targaryen"], ["created_at", "2016-10-25 15:01:24.521684"], ["updated_at", "2016-10-25 15:01:24.521684"]]
+  [1m[36m (57.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (4.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessage (20161025155451)
+  [1m[35m (0.4ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/rubist/example/db/migrate/20161025155451_create_message.rb:7)
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "content" varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20161025155451"]]
+  [1m[36m (10.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+[0m
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user1@factory.com' LIMIT 1
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO "users" ("email", "nick", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "user1@factory.com"], ["nick", "Stannis Baratheon"], ["created_at", "2016-10-25 16:09:34.038767"], ["updated_at", "2016-10-25 16:09:34.038767"]]
+  [1m[35m (101.2ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "messages" ("user_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 2], ["content", "my test content"], ["created_at", "2016-10-25 16:09:34.344336"], ["updated_at", "2016-10-25 16:09:34.344336"]]
+  [1m[36m (15.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-25 19:47:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/lib/ruby/vendor_ruby/rails/templates/rails/welcome/index.html.erb (56.3ms)
+Completed 200 OK in 179ms (Views: 92.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'asd@asd.com' LIMIT 1
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "users" ("email", "nick", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "asd@asd.com"], ["nick", "asd"], ["created_at", "2016-10-25 17:49:23.686809"], ["updated_at", "2016-10-25 17:49:23.686809"]]
+  [1m[35m (102.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "messages" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Hola mundo!"], ["user_id", 3], ["created_at", "2016-10-25 17:50:16.564917"], ["updated_at", "2016-10-25 17:50:16.564917"]]
+  [1m[36m (18.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 3]]
+
+
+Started GET "/users/3" for 127.0.0.1 at 2016-10-25 19:51:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/users/3"):
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/web_console/middleware.rb:39:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:38:in `call_app'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `block in call'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `block in tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:26:in `tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `tagged'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:22:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:18:in `call'
+  /usr/lib/ruby/vendor_ruby/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/static.rb:120:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:113:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/engine.rb:518:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/application.rb:165:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:15:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_table.html.erb (20.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (16.6ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.8ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/console.js.erb within layouts/javascript (43.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/index.html.erb (88.0ms)
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2016-10-25 19:51:47 +0200
+
+ActionController::RoutingError (No route matches [GET] "/users/3"):
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/web_console/middleware.rb:39:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:38:in `call_app'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `block in call'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `block in tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:26:in `tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `tagged'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/request_id.rb:21:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:22:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/runtime.rb:18:in `call'
+  /usr/lib/ruby/vendor_ruby/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/static.rb:120:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/sendfile.rb:113:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/engine.rb:518:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/application.rb:165:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/content_length.rb:15:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_route.html.erb (6.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (43.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/console.js.erb within layouts/javascript (21.1ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/index.html.erb (48.0ms)
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2016-10-25 19:54:46 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (3)[0m
+  Rendered users/show.html.slim within layouts/application (144.5ms)
+Completed 500 Internal Server Error in 288ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (undefined local variable or method `message' for #<#<Class:0x00000005a00e10>:0x000000059a39b8>):
+    2: br
+    3: ul
+    4:     - @user.messages.each do |messages|
+    5:     li = message.content
+    6: br
+    7: br
+  app/views/users/show.html.slim:5:in `_app_views_users_show_html_slim__1238697093668971747_46994200'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_source.erb (11.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (45.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/console.js.erb within layouts/javascript (22.9ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/main.js.erb within layouts/javascript (1.7ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/index.html.erb (52.0ms)
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2016-10-25 19:56:00 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (3)[0m
+  Rendered users/show.html.slim within layouts/application (8.7ms)
+Completed 200 OK in 3543ms (Views: 3536.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-10-25 19:56:04 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:04 +0200
+
+
+Started GET "/assets/jquery.self-c03f4eaf1119e6e68820418ad53c328101312ebc906325c60ad7c32edaa360b7.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:04 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:04 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:04 +0200
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (34.8ms)[0m  INSERT INTO "messages" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Hola mundo a todos!"], ["user_id", 3], ["created_at", "2016-10-25 17:56:26.876702"], ["updated_at", "2016-10-25 17:56:26.876702"]]
+  [1m[36m (15.7ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2016-10-25 19:56:42 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMessage Load (3.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (3)[0m
+  Rendered users/show.html.slim within layouts/application (17.2ms)
+Completed 200 OK in 104ms (Views: 92.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-10-25 19:56:42 +0200
+
+
+Started GET "/assets/jquery.self-c03f4eaf1119e6e68820418ad53c328101312ebc906325c60ad7c32edaa360b7.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:42 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:42 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:42 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-10-25 19:56:42 +0200
