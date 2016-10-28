@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/mcmiry/exampleRubyOnRails.svg?style=svg)](https://circleci.com/gh/mcmiry/exampleRubyOnRails)
+{<img src="https://circleci.com/gh/mcmiry/exampleRubyOnRails/tree/master.svg?style=svg" alt="CircleCI" />}[https://circleci.com/gh/mcmiry/exampleRubyOnRails/tree/master]
 
 == README
 
