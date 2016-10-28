@@ -284,3 +284,562 @@ Migrating to AddDeviseToUsers (20161028080736)
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 [0m
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2016-10-28 10:48:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (3)[0m
+  Rendered users/show.html.slim within layouts/application (28.6ms)
+Completed 200 OK in 501ms (Views: 383.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-10-28 10:48:27 +0200
+
+
+Started GET "/assets/jquery.self-c03f4eaf1119e6e68820418ad53c328101312ebc906325c60ad7c32edaa360b7.js?body=1" for 127.0.0.1 at 2016-10-28 10:48:27 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-10-28 10:48:27 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-10-28 10:48:27 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-10-28 10:48:27 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 10:48:34 +0200
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 10:48:34 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (119.5ms)
+Completed 200 OK in 167ms (Views: 164.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 10:49:31 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 91ms (Views: 89.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 10:56:45 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 53ms (Views: 52.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-10-28 10:56:45 +0200
+
+
+Started GET "/assets/jquery.self-c03f4eaf1119e6e68820418ad53c328101312ebc906325c60ad7c32edaa360b7.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:45 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:45 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:45 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:45 +0200
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 10:56:50 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-10-28 10:56:50 +0200
+
+
+Started GET "/assets/jquery.self-c03f4eaf1119e6e68820418ad53c328101312ebc906325c60ad7c32edaa360b7.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:50 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:50 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:50 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-10-28 10:56:50 +0200
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 10:57:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 262ms (Views: 226.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-10-28 10:57:05 +0200
+
+
+Started GET "/assets/jquery.self-c03f4eaf1119e6e68820418ad53c328101312ebc906325c60ad7c32edaa360b7.js?body=1" for 127.0.0.1 at 2016-10-28 10:57:05 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-10-28 10:57:05 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-10-28 10:57:05 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-10-28 10:57:05 +0200
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 10:57:26 +0200
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 10:57:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 62ms (Views: 59.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 10:57:28 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:03:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:03:45 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 264ms (Views: 238.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 11:03:47 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 58ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:04:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:04:38 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 315ms (Views: 284.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 11:04:40 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 60ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:06:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:06:17 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 345ms (Views: 317.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 11:06:19 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (3.6ms)
+  Rendered users/registrations/new.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 99ms (Views: 95.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:07:47 +0200
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:07:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (6.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 11:07:49 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.erb within layouts/application (62.7ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `nick_field' for #<ActionView::Helpers::FormBuilder:0x00000004d3edd0>):
+    10: 
+    11:   <div class="field">
+    12:     <%= f.label :nick %><br />
+    13:     <%= f.nick_field :nick %>
+    14:   </div>
+    15: 
+    16:   <div class="field">
+  app/views/users/registrations/new.html.erb:13:in `block in _app_views_users_registrations_new_html_erb___3006526515251648581_40779840'
+  app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb___3006526515251648581_40779840'
+  app/controllers/users/registrations_controller.rb:7:in `new'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_source.erb (12.8ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.7ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/console.js.erb within layouts/javascript (30.9ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/index.html.erb (58.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 11:07:49 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendered users/registrations/new.html.erb within layouts/application (61.0ms)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `nick_field' for #<ActionView::Helpers::FormBuilder:0x00000006bf2c68>):
+    10: 
+    11:   <div class="field">
+    12:     <%= f.label :nick %><br />
+    13:     <%= f.nick_field :nick %>
+    14:   </div>
+    15: 
+    16:   <div class="field">
+  app/views/users/registrations/new.html.erb:13:in `block in _app_views_users_registrations_new_html_erb___3006526515251648581_40779840'
+  app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb___3006526515251648581_40779840'
+  app/controllers/users/registrations_controller.rb:7:in `new'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/style.css.erb within layouts/inlined_string (4.1ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/console.js.erb within layouts/javascript (27.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/web_console/templates/index.html.erb (51.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:08:44 +0200
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:08:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 54ms (Views: 52.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 11:08:46 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-10-28 11:08:59 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/wu/48rETql8lTHJe403dVobEJsekDSq9nuY5/5AWGJbyZb261afPRuGJ+GyHfEDA9CbxZhDKpksxMUGkPlUww==", "user"=>{"email"=>"miriam@uclm.es", "nick"=>"miriam", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: nick
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'miriam@uclm.es' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  Rendered users/shared/_links.html.erb (0.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 294ms (Views: 53.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:10:19 +0200
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:10:19 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 82ms (Views: 55.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-10-28 11:10:21 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 101ms (Views: 99.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-10-28 11:10:31 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ew55wJuX7LmN0z8rKL4JY1lsR445eLHbzfnSKCkcgy3fzFDVugU9LerAKQPhLs8VAKfM0L+rr+gXRo/JR6WPjA==", "user"=>{"email"=>"miriam@uclm.es", "nick"=>"miriam", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'miriam@uclm.es' LIMIT 1
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "nick", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "miriam@uclm.es"], ["encrypted_password", "$2a$11$iYm9nL7Lr08s1amO0bDlWehkY3GoNyR6rfiWm3WXvYUAzP6r1AW9u"], ["nick", "miriam"], ["created_at", "2016-10-28 09:10:31.545476"], ["updated_at", "2016-10-28 09:10:31.545476"]]
+  [1m[35m (14.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 297ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:10:31 +0200
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:10:31 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)[0m
+  Rendered users/show.html.slim within layouts/application (18.1ms)
+Completed 200 OK in 99ms (Views: 64.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:24:25 +0200
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:24:25 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)
+  Rendered users/show.html.slim within layouts/application (6.0ms)
+Completed 200 OK in 54ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:24:31 +0200
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:24:31 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)[0m
+  Rendered users/show.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 49ms (Views: 44.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:25:02 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)[0m
+  Rendered users/show.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 72ms (Views: 67.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:25:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 39ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:25:22 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)
+  Rendered users/show.html.slim within layouts/application (27.8ms)
+Completed 200 OK in 286ms (Views: 241.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:26:25 +0200
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:26:25 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)[0m
+  Rendered users/show.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 53ms (Views: 47.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:27:10 +0200
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:27:10 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)
+  Rendered users/show.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 51ms (Views: 45.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:27:48 +0200
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:27:48 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)[0m
+  Rendered users/show.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 47.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:28:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 40ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:28:06 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)
+  Rendered users/show.html.slim within layouts/application (25.1ms)
+  Rendered layouts/_head.html.slim (2.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+  Rendered layouts/_navbar.html.slim (11.2ms)
+  Rendered layouts/_content.html.slim (2.7ms)
+  Rendered layouts/_footer.html.slim (6.1ms)
+Completed 200 OK in 311ms (Views: 266.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:28:31 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)[0m
+  Rendered users/show.html.slim within layouts/application (0.3ms)
+  Rendered layouts/_head.html.slim (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  Rendered layouts/_navbar.html.slim (9.6ms)
+  Rendered layouts/_content.html.slim (0.1ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 52ms (Views: 49.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.self-c03f4eaf1119e6e68820418ad53c328101312ebc906325c60ad7c32edaa360b7.js?body=1" for 127.0.0.1 at 2016-10-28 11:28:31 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-10-28 11:28:31 +0200
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-10-28 11:28:31 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-10-28 11:28:31 +0200
+
+
+Started DELETE "/users/sign_out?authenticity_token=A9%2B%2BUfxRfYMlcZsUTD%2FjyyKBfYdoLDaJYs9dmH0mTqanHZdE3cOsF0JijTyFryW9e0r22e7%2FKLq4cAB5E59CBw%3D%3D" for 127.0.0.1 at 2016-10-28 11:28:37 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"A9++UfxRfYMlcZsUTD/jyyKBfYdoLDaJYs9dmH0mTqanHZdE3cOsF0JijTyFryW9e0r22e7/KLq4cAB5E59CBw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:28:37 +0200
+Processing by PagesController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:28:37 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (25.7ms)
+  Rendered layouts/_head.html.slim (0.0ms)
+  Rendered layouts/_navbar.html.slim (0.5ms)
+  Rendered layouts/_content.html.slim (0.0ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 83ms (Views: 81.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-10-28 11:28:43 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tful0vZL9DMoMKfVtvqq17ngfwvMP+AIwHa8B5mzJsQ84MD9viGA0Ew5wxeI2RJuqLe6ODCZ2tMkrzIG9Kebgw==", "user"=>{"email"=>"miriam@uclm.es", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "miriam@uclm.es"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 249ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-28 11:28:44 +0200
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 5]]
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2016-10-28 11:28:44 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" IN (5)[0m
+  Rendered users/show.html.slim within layouts/application (0.4ms)
+  Rendered layouts/_head.html.slim (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 5]]
+  Rendered layouts/_navbar.html.slim (2.8ms)
+  Rendered layouts/_content.html.slim (0.1ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 54ms (Views: 46.7ms | ActiveRecord: 0.4ms)
